@@ -1,5 +1,2 @@
-print("hello word")
+print("coba")
 
-print("efi")
-
-print("hai efi wkwkw")
