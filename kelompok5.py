@@ -74,3 +74,13 @@ class Stack:
     # Memeriksa apakah stack kosong
     def is_empty(self):  
         return len(self.items) == 0
+
+    # Menambahkan item (score) ke stack
+    def push(self, item): 
+        if len(self.items) >= self.capacity:
+            raise OverflowError("Stack penuh")  
+        if not isinstance(item, int):  
+            raise ValueError("Score harus berupa integer")
+        self.items.append(item)
+        print(f"Score {item} ditambahkan ke stack") 
+
