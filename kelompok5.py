@@ -122,3 +122,17 @@ list_pertanyaan = [
 
 for q in list_pertanyaan:
     pertanyaan.append(q)
+
+# Fungsi Register
+def create_account():
+    username_baru = simpledialog.askstring("Register", "Masukkan Username:")
+    if not username_baru:
+        return messagebox.showerror("Error", "Username harus diisi.")
+
+    password_baru = simpledialog.askstring("Register", "Masukkan Password:")
+    if not password_baru:
+        return messagebox.showerror("Error", "Password harus diisi.")
+
+    account[username_baru] = password_baru
+    messagebox.showinfo("Sukses", f"Akun baru telah dibuat : {username_baru}")
+
