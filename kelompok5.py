@@ -84,3 +84,15 @@ class Stack:
         self.items.append(item)
         print(f"Score {item} ditambahkan ke stack") 
 
+    # Menghapus item (score) dari stack
+    def pop(self):  
+        if self.is_empty():  
+            raise IndexError("Stack kosong")  
+        return self.items.pop() 
+    
+    # Melihat item teratas stack tanpa menghapusnya
+    def peek(self):  
+        if self.is_empty():  
+            raise IndexError("Stack kosong")  
+        return self.items[-1]  
+
