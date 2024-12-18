@@ -64,3 +64,13 @@ class LinkedList:
             current = current.next
 
         return result  
+        
+# Struktur Data Stack, digunakan untuk menyimpan score kuis yang telah dijalankan
+class Stack:
+    def __init__(self, capacity=10):
+        self.capacity = capacity  
+        self.items = []  
+
+    # Memeriksa apakah stack kosong
+    def is_empty(self):  
+        return len(self.items) == 0
