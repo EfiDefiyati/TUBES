@@ -64,39 +64,3 @@ class LinkedList:
             current = current.next
 
         return result  
-
-# Struktur Data Stack, digunakan untuk menyimpan score kuis yang telah dijalankan
-class Stack:
-    def __init__(self, capacity=10):
-        self.capacity = capacity  
-        self.items = []  
-
-    # Memeriksa apakah stack kosong
-    def is_empty(self):  
-        return len(self.items) == 0
-
-    # Menambahkan item (score) ke stack
-    def push(self, item): 
-        if len(self.items) >= self.capacity:
-            raise OverflowError("Stack penuh")  
-        if not isinstance(item, int):  
-            raise ValueError("Score harus berupa integer")
-        self.items.append(item)
-        print(f"Score {item} ditambahkan ke stack") 
-
-    # Menghapus item (score) dari stack
-    def pop(self):  
-        if self.is_empty():  
-            raise IndexError("Stack kosong")  
-        return self.items.pop() 
-    
-    # Melihat item teratas stack tanpa menghapusnya
-    def peek(self):  
-        if self.is_empty():  
-            raise IndexError("Stack kosong")  
-        return self.items[-1]  
-
-    # Mengembalikan ukuran stack
-    def size(self):
-        return len(self.items)
-
