@@ -136,3 +136,16 @@ def create_account():
     account[username_baru] = password_baru
     messagebox.showinfo("Sukses", f"Akun baru telah dibuat : {username_baru}")
 
+# Fungsi Login
+def login():
+    username = username_entry.get()
+    password = password_entry.get()
+
+    if username in account and account[username] == password:
+        messagebox.showinfo("Berhasil", "Login berhasil")
+        login_window.destroy()
+        show_menu()
+    else:
+        messagebox.showerror("Error", "Username atau Password salah")
+
+
