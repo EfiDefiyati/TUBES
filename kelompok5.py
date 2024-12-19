@@ -199,3 +199,15 @@ def daftar_pertanyaan():
     daftar_pertanyaan = pertanyaan.to_list()
     tampilan_pertanyaan = "\n".join([f"{idx+1}. {q['pertanyaan']}" for idx, q in enumerate(daftar_pertanyaan)])
     messagebox.showinfo("Pertanyaan", tampilan_pertanyaan)
+
+# Fungsi untuk mengedit pertanyaan
+def edit_pertanyaan():
+    if pertanyaan.head is None:
+        return messagebox.showinfo("Error", "Tidak ada pertanyaan yang tersedia.")
+        
+    daftar_pertanyaan = pertanyaan.to_list()
+    tampilan_pertanyaan = "\n".join([f"{idx+1}. {q['pertanyaan']}" for idx, q in enumerate(daftar_pertanyaan)])
+    selected_idx = simpledialog.askinteger("Edit Pertanyaan", f"Pilihan pertanyaan yang ingin diubah:\n{tampilan_pertanyaan}")
+    if selected_idx is None or selected_idx < 1 or selected_idx > len(daftar_pertanyaan):
+        return messagebox.showerror("Error", "Pilihan tidak valid.")
+    
