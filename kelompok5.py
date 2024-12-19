@@ -190,32 +190,6 @@ def print_questions(node, idx=1):
     if node is None:
         return ""
     return f"{idx}. {node.data['pertanyaan']}\n" + print_questions(node.next, idx + 1)
-# Fungsi untuk menampilkan pertanyaan yang ada
-def daftar_pertanyaan():
-    if pertanyaan.head is None:
-        return messagebox.showinfo("Pertanyaan", "Tidak ada pertanyaan yang tersedia.")
-    
-    daftar_pertanyaan = pertanyaan.to_list()
-    tampilan_pertanyaan = "\n".join([f"{idx+1}. {q['pertanyaan']}" for idx, q in enumerate(daftar_pertanyaan)])
-    messagebox.showinfo("Pertanyaan", tampilan_pertanyaan)
 
-# Fungsi untuk mengedit pertanyaan
-def edit_pertanyaan():
-    if pertanyaan.head is None:
-        return messagebox.showinfo("Error", "Tidak ada pertanyaan yang tersedia.")
-        
-    daftar_pertanyaan = pertanyaan.to_list()
-    tampilan_pertanyaan = "\n".join([f"{idx+1}. {q['pertanyaan']}" for idx, q in enumerate(daftar_pertanyaan)])
-    selected_idx = simpledialog.askinteger("Edit Pertanyaan", f"Pilihan pertanyaan yang ingin diubah:\n{tampilan_pertanyaan}")
-    if selected_idx is None or selected_idx < 1 or selected_idx > len(daftar_pertanyaan):
-        return messagebox.showerror("Error", "Pilihan tidak valid.")
-    
-    pilih_pertanyaan = daftar_pertanyaan[selected_idx-1]
-    pertanyaan_baru = simpledialog.askstring("Edit Pertanyaan", f"Edit pertanyaan:\n{pilih_pertanyaan['pertanyaan']}")
-    jawaban_baru = simpledialog.askstring("Edit Jawaban", "Edit jawaban yang benar (A-D):")
-    if jawaban_baru not in ["A", "B", "C", "D"]:
-        return messagebox.showerror("Error", "Jawaban harus A, B, C, atau D")
-    
-    pilih_pertanyaan["pertanyaan"] = pertanyaan_baru
-    pilih_pertanyaan["jawaban"] = jawaban_baru
-    messagebox.showinfo("Sukses", "Pertanyaan berhasil diperbarui")
+
+
