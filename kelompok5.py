@@ -235,3 +235,28 @@ def hapus_pertanyaan():
         messagebox.showinfo("Berhasil", "Pertanyaan berhasil dihapus!")
     else:
         messagebox.showerror("Error", "Pilihan tidak valid.")
+
+
+# Fungsi untuk memulai kuis dan mengupdate score
+def mulai_kuis():
+    if pertanyaan.head is None:
+        return messagebox.showerror("Error", "Tidak ada pertanyaan untuk kuis.")
+    
+    current_pertanyaan = pertanyaan.head
+    jawaban_benar = 0
+    total_pertanyaan = len(list_pertanyaan)  
+
+    while current_pertanyaan:
+        q = current_pertanyaan.data
+        pilihan_ganda = "\n".join([f"{chr(65+idx)}. {pilihan}" for idx, pilihan in enumerate(q["options"])])
+        jawaban = simpledialog.askstring("Kuis", f"{q['pertanyaan']}\n{pilihan_ganda}\nPilih jawaban (A-D):")
+        
+        if jawaban:
+            jawaban = jawaban.upper()  
+            if jawaban in ["A", "B", "C", "D"]: 
+                if q["options"][["A", "B", "C", "D"].index(jawaban)] == q["answer"]:  
+                    jawaban_benar += 1 
+            else:
+                messagebox.showwarning("Peringatan", "Jawaban harus A, B, C, atau D.")
+        
+        current_pertanyaan = current_pertanyaan.next  
