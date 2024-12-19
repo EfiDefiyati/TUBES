@@ -164,4 +164,25 @@ def show_menu():
 
     menu_window.mainloop()
 
+# Fungsi untuk menambahkan pertanyaan baru
+def tambah_pertanyaan():
+    soal_baru = simpledialog.askstring("Tambah Pertanyaan", "Tambahkan Pertanyaan:")
+    if not soal_baru:
+        return
+    options = []
+    pilihan = ["A", "B", "C", "D"]  
+
+    for i in range(4):  
+        option = simpledialog.askstring("Tambah Pilihan", f"Tambahkan Pilihan {pilihan[i]}:")
+        if option:
+            options.append(option)
+
+    jawaban_benar = simpledialog.askstring("Jawaban Benar", "Masukkan jawaban yang benar (A-D):")
+    if jawaban_benar not in ["A", "B", "C", "D"]:
+        return messagebox.showerror("Error", "Jawaban berupa A, B, C, atau D")
+    
+    pertanyaan_baru = {"pertanyaan": soal_baru, "options": options, "jawaban": jawaban_benar}
+    pertanyaan.append(pertanyaan_baru) 
+    messagebox.showinfo("Berhasil", "Pertanyaan berhasil ditambahkan")
+
 
