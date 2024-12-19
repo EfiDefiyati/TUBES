@@ -191,5 +191,12 @@ def print_questions(node, idx=1):
         return ""
     return f"{idx}. {node.data['pertanyaan']}\n" + print_questions(node.next, idx + 1)
 
-
+# Fungsi untuk menampilkan pertanyaan yang ada
+def daftar_pertanyaan():
+    if pertanyaan.head is None:
+        return messagebox.showinfo("Pertanyaan", "Tidak ada pertanyaan yang tersedia.")
+    
+    daftar_pertanyaan = pertanyaan.to_list()
+    tampilan_pertanyaan = "\n".join([f"{idx+1}. {q['pertanyaan']}" for idx, q in enumerate(daftar_pertanyaan)])
+    messagebox.showinfo("Pertanyaan", tampilan_pertanyaan)
 
