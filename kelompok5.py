@@ -220,3 +220,18 @@ def edit_pertanyaan():
     pilih_pertanyaan["pertanyaan"] = pertanyaan_baru
     pilih_pertanyaan["jawaban"] = jawaban_baru
     messagebox.showinfo("Sukses", "Pertanyaan berhasil diperbarui")
+
+# Fungsi untuk menghapus pertanyaan
+def hapus_pertanyaan():
+    if pertanyaan.head is None:
+        return messagebox.showinfo("Error", "Tidak ada pertanyaan yang tersedia.")
+    
+    daftar_pertanyaan = pertanyaan.to_list()
+    tampilan_pertanyaan = "\n".join([f"{idx+1}. {q['pertanyaan']}" for idx, q in enumerate(daftar_pertanyaan)])
+    selected_idx = simpledialog.askinteger("Hapus Pertanyaan", f"Pilihan pertanyaan yang ingin dihapus:\n{tampilan_pertanyaan}")
+    
+    if selected_idx in range(1, len(daftar_pertanyaan) + 1):
+        pertanyaan.delete(selected_idx - 1)
+        messagebox.showinfo("Berhasil", "Pertanyaan berhasil dihapus!")
+    else:
+        messagebox.showerror("Error", "Pilihan tidak valid.")
