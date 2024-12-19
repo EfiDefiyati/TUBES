@@ -148,4 +148,20 @@ def login():
     else:
         messagebox.showerror("Error", "Username atau Password salah")
 
+# Fungsi untuk menampilkan menu utama setelah login
+def show_menu():
+    menu_window = tk.Tk()
+    menu_window.title("Menu Kuis")
+    menu_window.configure(bg="#ffffe0")
+    menu_window.geometry("350x350")
+
+    tk.Button(menu_window, text="Tambah Pertanyaan", command=tambah_pertanyaan, font=("Arial", 12), bg="#00008b", fg="white", width=20).pack(pady=10)
+    tk.Button(menu_window, text="Lihat Pertanyaan", command=daftar_pertanyaan, font=("Arial", 12), bg="#00008b", fg="white", width=20).pack(pady=10)
+    tk.Button(menu_window, text="Edit Pertanyaan", command=edit_pertanyaan, font=("Arial", 12), bg="#00008b", fg="white", width=20).pack(pady=10)
+    tk.Button(menu_window, text="Hapus Pertanyaan", command=hapus_pertanyaan, font=("Arial", 12), bg="#00008b", fg="white", width=20).pack(pady=10)
+    tk.Button(menu_window, text="Mulai Kuis", command=mulai_kuis, font=("Arial", 12), bg="#00008b", fg="white", width=20).pack(pady=10)
+    tk.Button(menu_window, text="Skor Akhir", command=score_total, font=("Arial", 12), bg="#00008b", fg="white", width=20).pack(pady=10)
+
+    menu_window.mainloop()
+
 
