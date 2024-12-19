@@ -21,7 +21,7 @@ class LinkedList:
             current = self.head  
             while current.next:  
                 current = current.next
-            current.next = new_node  
+            current.next = new_node 
 
     # Fungsi untuk menghapus node pada indeks tertentu
     def delete(self, index):  
@@ -30,7 +30,7 @@ class LinkedList:
                 raise IndexError("Linked list kosong, tidak ada node untuk dihapus.")
 
             if index == 0:  
-                self.head = self.head.next  
+                self.head = self.head.next
                 return True
 
             current = self.head
@@ -63,7 +63,7 @@ class LinkedList:
             result.append(current.data) 
             current = current.next
 
-        return result  
+        return result 
         
 # Struktur Data Stack, digunakan untuk menyimpan score kuis yang telah dijalankan
 class Stack:
@@ -106,7 +106,7 @@ account = {"admin":"admin"}
 pertanyaan = LinkedList() 
 score_kuis = Stack()
 
-# 10 list soal
+# 10 list pertanyaan
 list_pertanyaan = [
     {"pertanyaan": "Apa yang dimaksud dengan struktur data?", "options": ["Sebuah program", "Sebuah cara untuk menyimpan data", "Sebuah algoritma", "Sebuah bahasa pemrograman"], "answer": "Sebuah cara untuk menyimpan data"},
     {"pertanyaan": "Apa yang dimaksud dengan Array?", "options": ["Struktur data yang menyimpan elemen secara terurut", "Struktur data berbasis pohon", "Struktur data berbasis graf", "Struktur data yang hanya menyimpan satu nilai"], "answer": "Struktur data yang menyimpan elemen secara terurut"},
@@ -267,7 +267,6 @@ def mulai_kuis():
     score_kuis.push(int(score))  
     messagebox.showinfo("Kuis Selesai", f"Score Anda: {score} / 100.0")
     print(f"Score yang ditambahkan ke stack: {score}") 
-
 
 # Fungsi untuk menghitung score total
 def score_total():
