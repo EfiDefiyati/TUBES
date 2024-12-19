@@ -260,3 +260,10 @@ def mulai_kuis():
                 messagebox.showwarning("Peringatan", "Jawaban harus A, B, C, atau D.")
         
         current_pertanyaan = current_pertanyaan.next  
+
+
+    # Menghitung score akhir dan menambahkannya ke dalam stack
+    score = (jawaban_benar / total_pertanyaan) * 100
+    score_kuis.push(int(score))  
+    messagebox.showinfo("Kuis Selesai", f"Score Anda: {score} / 100.0")
+    print(f"Score yang ditambahkan ke stack: {score}") 
