@@ -267,3 +267,12 @@ def mulai_kuis():
     score_kuis.push(int(score))  
     messagebox.showinfo("Kuis Selesai", f"Score Anda: {score} / 100.0")
     print(f"Score yang ditambahkan ke stack: {score}") 
+
+
+# Fungsi untuk menghitung score total
+def score_total():
+    if score_kuis.is_empty():
+        return messagebox.showinfo("Score Akhir", "Belum ada score yang disimpan.")
+    
+    total_score = score_kuis.peek()  
+    messagebox.showinfo("Score Akhir", f"Score Terakhir: {total_score}")
