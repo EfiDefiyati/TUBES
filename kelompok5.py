@@ -210,4 +210,13 @@ def edit_pertanyaan():
     selected_idx = simpledialog.askinteger("Edit Pertanyaan", f"Pilihan pertanyaan yang ingin diubah:\n{tampilan_pertanyaan}")
     if selected_idx is None or selected_idx < 1 or selected_idx > len(daftar_pertanyaan):
         return messagebox.showerror("Error", "Pilihan tidak valid.")
+
+    pilih_pertanyaan = daftar_pertanyaan[selected_idx-1]
+    pertanyaan_baru = simpledialog.askstring("Edit Pertanyaan", f"Edit pertanyaan:\n{pilih_pertanyaan['pertanyaan']}")
+    jawaban_baru = simpledialog.askstring("Edit Jawaban", "Edit jawaban yang benar (A-D):")
+    if jawaban_baru not in ["A", "B", "C", "D"]:
+        return messagebox.showerror("Error", "Jawaban harus A, B, C, atau D")
     
+    pilih_pertanyaan["pertanyaan"] = pertanyaan_baru
+    pilih_pertanyaan["jawaban"] = jawaban_baru
+    messagebox.showinfo("Sukses", "Pertanyaan berhasil diperbarui")
