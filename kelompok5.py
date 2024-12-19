@@ -96,7 +96,6 @@ class Stack:
             raise IndexError("Stack kosong")  
         return self.items[-1]  
 
-
     # Mengembalikan ukuran stack
     def size(self):
         return len(self.items)
@@ -236,7 +235,6 @@ def hapus_pertanyaan():
     else:
         messagebox.showerror("Error", "Pilihan tidak valid.")
 
-
 # Fungsi untuk memulai kuis dan mengupdate score
 def mulai_kuis():
     if pertanyaan.head is None:
@@ -260,7 +258,6 @@ def mulai_kuis():
                 messagebox.showwarning("Peringatan", "Jawaban harus A, B, C, atau D.")
         
         current_pertanyaan = current_pertanyaan.next  
-
 
     # Menghitung score akhir dan menambahkannya ke dalam stack
     score = (jawaban_benar / total_pertanyaan) * 100
