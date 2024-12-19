@@ -275,3 +275,25 @@ def score_total():
     
     total_score = score_kuis.peek()  
     messagebox.showinfo("Score Akhir", f"Score Terakhir: {total_score}")
+
+# Login GUI untuk memasukkan username dan password
+login_window = tk.Tk()
+login_window.title("Login System")
+login_window.configure(bg="#ffffe0")
+
+tk.Label(login_window, text="KUIS SYSTEM", font=("Times New Roman", 16, "bold"), bg="#ffffe0").grid(row=1, column=1, padx=10, pady=15)
+
+tk.Label(login_window, text="Username:", font=("Arial", 12), bg="#ffffe0").grid(row=2, column=1, padx=10, pady=5)
+username_entry = tk.Entry(login_window, font=("Arial", 12))
+username_entry.grid(row=3, column=1, padx=10, pady=5)
+
+tk.Label(login_window, text="Password:", font=("Arial", 12), bg="#ffffe0").grid(row=4, column=1, padx=10, pady=5)
+password_entry = tk.Entry(login_window, show="*", font=("Arial", 12))
+password_entry.grid(row=5, column=1, padx=10, pady=5)
+
+tk.Button(login_window, text="Login", command=login, font=("Arial", 12), bg="#4caf50", fg="white", width=15).grid(row=6, column=1, pady=10, padx=5, columnspan=3)
+
+tk.Button(login_window, text="Register", command=create_account, font=("Arial", 12), bg="#00008b", fg="white", width=15).grid(row=7, column=1, columnspan=3, pady=5, padx=5)
+
+login_window.geometry("350x350")
+login_window.mainloop()
